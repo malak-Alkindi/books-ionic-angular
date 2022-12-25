@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>records</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  <div style="width: 100%;height: 100%; position:relative" *ngIf="wait">
+       <div align="center" style="position: absolute;
+       margin: auto;
+       top: 0;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       height: 30%;">
+     <img src="../../../../assets/icon/wait.gif" style="width:200px"alt="">
+     <h1 style="font-family: 'Cairo', sans-serif;" class="ion-no-margin">الرجاء الانتظار</h1>
+     </div>
+     </div>
+    
+   
+   
+   <div  *ngIf="!wait"  class="knone">
+     <div class="centered">
+     <div align="center" class="main">
+   <div class="date"  *ngIf="!show" >
+     <h3 align="right">ادخل تاريخ السجل الذي تريد البحث عنه </h3>
+      
+       <div   class="knone">
+         <ion-item lines="none">
+         
+         </ion-item >
+         <ion-item  lines="none">
+        <ion-input type="number" [(ngModel)]="month"placeholder="month">
+        </ion-input>
+       </ion-item>
+       <ion-item  lines="none">
+        <ion-input type="number" [(ngModel)]="year" placeholder="year">
+        </ion-input>
+        </ion-item>
+       </div>
+   </div>
+   <ion-button *ngIf="!show" class="searchbtn" (click)="searchdate()">
+     <ion-icon slot="start" name="add"></ion-icon>
+   ابحث
+   </ion-button>
+   <ion-button *ngIf="show" class="searchbtn" (click)="cancel()">
+     <ion-icon slot="start" name="add"></ion-icon>
+ الغاء البحث
+   </ion-button>
+ </div>
+ <ion-list>
+   <ion-label *ngIf="arry.length<1">
+     لا يوجد ملف مسجل بهذا التاريخ
+   </ion-label>
+   <ion-item-sliding *ngFor="let i of arry ; let k = index">
+     <ion-item-options side="start">
+      </ion-item-options>
+   <ion-item  style="--backgroun:none">
+   <ion-label>
+     <p> تاريخ</p>
+     <h2>{{i.date}}</h2>
+   </ion-label>
+ 
+   
+   <ion-icon   (click)="godetailprod(i,k)"name="play"></ion-icon>
+ </ion-item>
+ </ion-item-sliding>
+ </ion-list>
+ 
+     </div>
+   </div>
+  
+ 
+ </ion-content>

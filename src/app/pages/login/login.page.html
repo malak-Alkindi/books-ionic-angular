@@ -1,0 +1,58 @@
+<ion-content color="secoondary">
+  <div class="ioncontent">
+    
+    <div class="container">
+      <div class="body" align="center">
+        <h3 align="center" class="head">تسجيل الدخول</h3>
+       
+        <ion-list>
+          <ion-item>
+            <ion-icon slot="end" name="at"></ion-icon>
+            <ion-input
+              [(ngModel)]="userObj.email"
+              type="email"
+              placeholder="البريد الاكتروني "
+            ></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-icon slot="end" name="lock-closed"></ion-icon>
+
+            <ion-input
+              [(ngModel)]="userObj.password"
+              type="password"
+              placeholder="رمز المرور"
+            ></ion-input>
+          </ion-item>
+        </ion-list>
+        
+        
+        <ion-button
+          class="btn1"
+          (click)="validateUser()"
+          fill="outline"
+          expand="block"
+          shape="round"
+        >
+          تسجيل الدخول
+        </ion-button>
+       
+      
+        <ion-button
+        class="btn1"
+       
+        fill="outline"
+        expand="block"
+        shape="round"
+        *ngIf="wait"
+      >
+     
+      <ion-spinner name="lines"></ion-spinner>
+     
+     
+      </ion-button>
+      </div>
+    </div>
+ 
+  </div>
+</ion-content>

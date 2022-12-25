@@ -1,0 +1,245 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title align="right">
+      <p class="title">{{roomno }}الغرفه رقم </p>
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <div style="width: 100%;height: 100%; position:relative" *ngIf="wait">
+    <div align="center" style="position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;">
+      <img src="../../../../assets/icon/wait.gif" style="width:200px" alt="">
+      <h1 style="font-family: 'Cairo', sans-serif;" class="ion-no-margin">الرجاء الانتظار</h1>
+    </div>
+  </div>
+ 
+  <div align="right" class="about" *ngIf="!wait">
+    <div *ngIf="date.length<=0">
+      <h4 align="right">لم يتم حجز هذه الغرفه من احد </h4>
+    </div>
+    <div class="fdate" align="center" *ngIf="date.length>0">
+      <ion-row>
+        <ion-col size="4">{{viewTitle}}</ion-col>
+        <ion-col size="4" (click)="today()">اليوم</ion-col>
+        <ion-col size="4">  كامل الحجوزات </ion-col>
+      </ion-row>
+
+      <div [ngClass]="avalible?'no':'yes'">
+
+        <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate"
+          (onEventSelected)=" onEventSelected($event)" (onTimeSelected)="onTimeSelected1($event)" [step]="calendar.step"
+          (onTitleChanged)="onViewTitleChanged($event)">
+
+        </calendar>
+      </div>
+      <div *ngIf="avalible">
+        <h4 align="right">هذا التاريخ مشغول </h4>
+      </div>
+      <div *ngIf="!avalible">
+        <h4 align="right">لم يتم حجز هذا التاريخ</h4>
+      </div>
+    </div>
+    <div *ngIf="avalible">
+      <div class="review">
+        <ion-row>
+          <ion-col size="12">
+          
+         
+<ion-row>
+ 
+  <ion-col size="9" align="left">
+    <ion-toggle color="secondary"[(ngModel)]="check"></ion-toggle>
+  </ion-col>
+  <ion-col size="3">
+    <ion-label>وضع الحجز</ion-label>
+  </ion-col>
+</ion-row>
+  
+<ion-row>
+ 
+  <ion-col size="2" align="left">
+    
+    <ion-input class="ion-no-padding ion-no-margin"[(ngModel)]="rest" maxlength="30" align="right" type="text" placeholder="ادخل">
+    </ion-input>
+  </ion-col>
+  <ion-col size="10" >
+    <ion-label>المبلغ المدفوع</ion-label>
+  </ion-col>
+</ion-row>
+   
+
+
+
+            
+      
+          </ion-col>
+        </ion-row>
+
+      </div>
+
+      <hr>
+      <div class="seperator">
+        <hr>
+      </div>
+      <div class="review">
+        <ion-row>
+          <ion-col size="6">
+            {{name}}
+          </ion-col>
+          <ion-col size="6">
+            الاسم
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col size="6">
+            {{wno}}
+          </ion-col>
+          <ion-col size="6">
+            رقم الواتساب
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div class="seperator">
+        <hr>
+      </div>
+      <div class="review">
+        <ion-row>
+          <ion-col size="6">
+            {{price}}
+          </ion-col>
+          <ion-col size="6">
+            سعر الحجز
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="6">
+            {{rest}} رع
+          </ion-col>
+          <ion-col size="6">
+            تم تحويل مبلغ
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            {{price-rest}}
+          </ion-col>
+          <ion-col size="6">
+            الباقي
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div class="seperator">
+        <hr>
+      </div>
+      <div class="review">
+
+        <ion-row>
+          <ion-col size="6">
+            {{sdate | date:'dd/M/yyyy'}}
+          </ion-col>
+          <ion-col size="6">
+            تاريخ الحجز
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            {{time | date:'shortTime'}}
+          </ion-col>
+          <ion-col size="6">
+            وقت بدايه الحجز
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div class="seperator">
+        <hr>
+      </div>
+      <div class="review">
+
+        <ion-row>
+          <ion-col size="6">
+            {{fdate| date:'dd/M/yyyy'}}
+          </ion-col>
+          <ion-col size="6">
+            تاريخ انتهاء الحجز
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            {{timeout | date:'shortTime'}}
+          </ion-col>
+          <ion-col size="6">
+            وقت نهايه الحجز
+          </ion-col>
+        </ion-row>
+      </div>
+      <div class="seperator">
+        <hr>
+      </div>
+      <div class="description">
+        <h5>ملاحضات حول الحجز</h5>
+
+        <p *ngIf="disc!=''">
+          {{disc}}
+        </p>
+        <p *ngIf="disc==''">
+          لا يوجد
+        </p>
+      </div>
+      <div class="seperator">
+        <hr>
+      </div>
+
+      <div class="review">
+        <hr>
+        <ion-row>
+          <ion-col size="6">
+
+            <ion-icon (click)="callnumber()" color="primary" name="call"></ion-icon>
+            {{i.phoneno}}
+          </ion-col>
+          <ion-col size="6">
+            اتصل
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <a [href]="'https://api.whatsapp.com/send?phone=+968' + wno + '&text=%20مرحبا' " target="_blank">
+
+              <ion-icon color="primary" name="logo-whatsapp"></ion-icon>
+{{i.phoneno}}
+            </a>
+          </ion-col>
+          <ion-col size="6">
+            ارسل رساله واتساب
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div class="seperator">
+        <hr>
+      </div>
+      <br>
+
+      <ion-button color="secondary"expand="full" fill="outline" (click)="what()">حفظ التغيرات</ion-button>
+      <ion-button expand="full" fill="outline" (click)="del()">حذف الحجز</ion-button>
+    </div>
+    
+  </div>
+</ion-content>

@@ -1,0 +1,102 @@
+<!----------------------------------------------------- header - ---------------------------------------------------->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  
+  <div *ngIf="wait">
+    الرجاء الانتظار
+  </div>
+  <div *ngIf="!wait">
+    <a  [href]="i.imageurl" target="_blank" >
+    <img [src]="i.imageurl"/>
+  </a>
+  <!----------------------------------------------------- pick a date  ------------------------------------------------------------>
+  <h2 align="right">موعد الحجز</h2>
+  <div class="fdate" align="center">
+    <ion-row>
+      <ion-col size="4">{{viewTitle}}</ion-col>
+      <ion-col size="4" (click)="today()">اليوم</ion-col>
+      <ion-col size="4"> يدايه الحجز</ion-col>
+    </ion-row>
+
+    <div [ngClass]="avalible?'no':'yes'">
+      <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate"
+        (onTimeSelected)="onTimeSelected1($event)" [step]="calendar.step" (onTitleChanged)="onViewTitleChanged($event)">
+      </calendar>
+    </div>
+    <div *ngIf="avalible">
+      <h4 align="right">هذا التاريخ مشغول </h4>
+    </div>
+    <div *ngIf="!avalible">
+      <h4 align="right">يمكنك اختيار هذا التاريخ</h4>
+    </div>
+  </div>
+
+  <div class="sdate" align="center">
+    <ion-row>
+      <ion-col size="4">{{viewTitle1}}</ion-col>
+      <ion-col size="4" (click)="today1()">اليوم</ion-col>
+      <ion-col size="4"> نهايه الحجز</ion-col>
+    </ion-row>
+    <div [ngClass]="avalible1?'no':'yes'">
+      <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate1"
+        (onTimeSelected)="onTimeSelected2($event)" [step]="calendar.step"
+        (onTitleChanged)="onViewTitleChanged1($event)">
+
+      </calendar>
+    </div>
+    <div *ngIf="avalible1">
+      <h4 align="right">هذا التاريخ مشغول </h4>
+    </div>
+    <div *ngIf="!avalible1">
+      <h4 align="right">يمكنك اختيار هذا التاريخ</h4>
+    </div>
+  </div>
+
+  <ion-item>
+    <ion-label class="ion-no-margin" slot="end">وقت الدخول </ion-label>
+    <ion-datetime locale="en-GB"[(ngModel)]="time"  presentation="time" hour-cycle="h12" ></ion-datetime>
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label class="ion-no-margin" slot="end"> وقت الخروج</ion-label>
+    <ion-datetime [(ngModel)]="timeout"  presentation="time" hour-cycle="h12" ></ion-datetime>
+  </ion-item>
+    <!-- ----------------------------------------------- add personal information   -------------------------------------------->
+  <h2 align="right" style="margin-top:20px">معلوماتك الشخصيه</h2>
+  <div class="seperator">
+    <hr>
+  </div>
+
+  <ion-item>
+    <ion-label slot="end">اسمك</ion-label>
+    <ion-input [(ngModel)]="name" maxlength="30" align="right" type="text" placeholder="مع القبيله او اللقب">
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label slot="end">رقمك</ion-label>
+    <ion-input [(ngModel)]="wno" maxlength="30" align="right" type="number" placeholder=" واتساب بدون مفتاح الدوله">
+    </ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-textarea [(ngModel)]="disc" align="right" type="text" placeholder=" ملاحظه "></ion-textarea>
+  </ion-item>
+  
+ <!--------------------------------- formard infromation to cinfirm page  - ---------------------------------------------------->
+  <ion-button (click)="createRandomEvents()" expand="block" fill="clear" shape="round">
+  التالي
+  </ion-button>
+
+ 
+</div>
+
+</ion-content>

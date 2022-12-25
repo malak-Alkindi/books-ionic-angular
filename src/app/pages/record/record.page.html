@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="start">
+      <p class="title"> السجل </p>
+    </ion-title>
+    
+      <ion-button (click)="del()"slot="end" fill="outline" size="small">
+        حذف السجل
+      </ion-button>
+    
+  </ion-toolbar>
+
+ 
+</ion-header>
+
+<ion-content>
+<div class="top"> 
+  <h2 align="right" style="margin-top:20px">سجل شهر {{y}}-{{m}}</h2>
+  <h2 align="left" style="margin-top:20px">  {{total()}} : المجموع </h2>
+</div>
+  <div style="width: 100%;height: 100%; position:relative" *ngIf="wait">
+    <div align="center" style="position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;">
+      <img src="../../../../assets/icon/wait.gif" style="width:200px" alt="">
+      <h1 style="font-family: 'Cairo', sans-serif;" class="ion-no-margin">الرجاء الانتظار</h1>
+    </div>
+  </div>
+
+  <div align="right" *ngFor="let g of catarray ;let k=index">
+  
+  <div class="review"  *ngIf="!wait" (click)="goend(g)">
+    
+    <ion-row>
+      <ion-col size="6">
+      {{g.name}}
+      </ion-col>
+      <ion-col size="6">
+        الاسم
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+       {{g.price}}
+      </ion-col>
+      <ion-col size="6">
+        السعر
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        {{g.roomno}}
+      </ion-col>
+      <ion-col size="6">
+       رقم الغرفه
+      </ion-col>
+    </ion-row>
+   
+    <div class="seperator">
+      <hr>
+    </div>
+  </div>
+</div>
+</ion-content>

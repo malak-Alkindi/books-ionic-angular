@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Cairo:wght@300&family=Changa:wght@200&family=Noto+Nastaliq+Urdu:wght@400;700&family=Scheherazade&family=Tajawal:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri&display=swap');
+
+///////////////////////////////////////// راس الصفحه  راس الصفحه.......................................
+
+.addpic{    margin: auto;
+    width: 240px;
+    font-family: 'Cairo';}
+/////////////////////////////////////////  عنوان الصفحه  ........................................
+.title{
+    font-family: 'Cairo';
+    font-family: 'Lalezar';
+    font-family: 'El+Messiri';
+    font-family: 'Almarai';
+   }
+
+
+/////////////////////////////////////////  جسم الصفحه  ........................................
+
+ion-input{
+    font-family: 'Cairo'; 
+}
+
+
+
+.body {
+           
+
+    ion-list {
+        padding:5px;
+        --background: none;
+        background: none;
+        margin-bottom: 0!important;
+        
+        ion-item {
+            
+            --highlight-height: 0;
+            --background: none;
+           
+            border-radius: 4px;
+            margin-top: 10px;
+           
+
+
+            ion-icon {
+                color:#414141;
+            }
+
+            ion-input {
+                --color:#4b4b4b;
+            }
+        }
+    
+    }
+   
+ 
+}
+
+ion-button{
+    margin-bottom: 100px !important;
+    margin: 50px;
+    --background: #636363;
+}
+.refdiv{
+    margin: auto;
+    width: 95%;
+    margin-bottom:70px;
+}
+.griddiv{
+    padding: 2px;
+    font-family:monospace;
+    width: 100px;
+    display: inline-table;
+    height: 100px;
+    margin: 8px;
+    border-radius: 8px;
+    border: 1px solid #196236;
+    box-shadow: 0 5px 20px 0 #3e3b3b4f;
+}
+.show {
+    display    : block;
+    color      : grey;
+    font-family: 'Raleway', sans-serif;
+
+}
+

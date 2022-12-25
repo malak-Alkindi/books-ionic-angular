@@ -1,0 +1,70 @@
+<ion-header>
+  <div class="ionhead">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+    <ion-title align="center" class="title">اضافه غرفه  </ion-title>
+  </ion-toolbar>
+</div>
+</ion-header>
+
+<ion-content>
+  <div style="width: 100%;height: 100%; position:relative" *ngIf="wait">
+    <div align="center" style="position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;">
+  <img src="../../../../assets/icon/wait.gif" style="width:200px"alt="">
+  <h1 style="font-family: 'Cairo', sans-serif;" class="ion-no-margin">الرجاء الانتظار</h1>
+  </div>
+  </div>
+  <div class="ioncontent" *ngIf="!wait">
+  <div class="body">
+
+    <ion-list>
+      <br />
+      <div align="center">
+       <img [src]="imagelink"/>
+        <input class="hide_file addpic" color="primary" type="file"  accept=".jpg,.jpeg" id="image-input" (change)="selectFile($event)" />
+      </div>
+      <ion-item  >
+        
+        <ion-input  (keydown.enter)="addcat()" [(ngModel)]="catname" maxlength="30"align="right"type="text"placeholder="رقم الغرفه "></ion-input>
+      </ion-item>
+      <ion-item  >
+        
+        <ion-input (keydown.enter)="addcat()" [(ngModel)]="price"align="right"type="text"placeholder=" سعر الغرفه"></ion-input>
+      </ion-item>
+
+    
+
+    </ion-list>
+
+   
+   
+    <ion-button (click)="addcat()"expand="block" class="title" color="secondary">
+      اضافه غرفه
+    </ion-button>
+
+
+  </div>
+  <div class="refdiv" align="center">
+    <div *ngFor="let g of catarray ;let k=index" class='griddiv' color="primary">
+      <h6 align="right" class="ion-no-margin ion-no-padding">
+        <ion-icon   *ngIf="!g.delete"(click)="sure(g)"name="close-outline" ></ion-icon>
+        <ion-badge *ngIf="g.delete"color="light" mode="ios" (click)="delcat(g.catname)">متأكد</ion-badge>
+        <ion-badge *ngIf="g.delete"color="light" mode="ios" (click)="hide(g)">لا</ion-badge>
+       
+      </h6>
+      <div class="show" >
+        <ion-text >   <p>{{g.catname |titlecase}}</p></ion-text> 
+        <ion-text >   <p>{{g.price | currency:'OMR'}}</p></ion-text> 
+        </div>
+    </div>
+  </div>
+</div>
+</ion-content>

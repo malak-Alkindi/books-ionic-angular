@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title align="right">
+      
+      <p class="title">{{i.roomno }}الغرفه رقم </p>
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="width: 100%;height: 100%; position:relative" *ngIf="wait">
+    <div align="center" style="position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;">
+      <img src="../../../../assets/icon/wait.gif" style="width:200px" alt="">
+      <h1 style="font-family: 'Cairo', sans-serif;" class="ion-no-margin">الرجاء الانتظار</h1>
+    </div>
+  </div>
+  <div *ngIf="show" align="center">
+   
+  
+  </div>
+  <div align="center" style="padding:10px"class="about"*ngIf="!wait" >
+    <table  id='pdf' >
+      <tr  align="left" >
+        <th  align="right" > الغرفه رقم  {{i.roomno}} </th>
+       
+      </tr>
+      <tr>
+        <td>الاسم</td>
+        <td> {{i.name}}</td>
+      
+      </tr>
+      
+      <tr>
+        <td>رقم الواتساب</td>
+        <td>{{i.wno}}</td>
+        
+      </tr>
+      <tr>
+        <td>سعر الحجز</td>
+        <td>{{i.price}}</td>
+       
+      </tr>
+      <tr>
+        <td>تم تحويل مبلغ </td>
+        <td>{{i.rest}} رع</td>
+      
+      </tr>
+       <tr>
+        <td>الباقي</td>
+        <td> {{i.price-i.rest}}</td>
+      
+      </tr>
+      <tr>
+        <td>تاريخ بدايه الحجز</td>
+        <td> {{sdate | date:'dd/M/yyyy'}}</td>
+       
+      </tr>
+      <tr>
+        <td>وقت بدايه الحجز</td>
+        <td> {{i.time | date:'shortTime'}}</td>
+       
+      </tr>
+       <tr>
+        <td>تاريخ انتهاء الحجز</td>
+        <td>{{fdate | date:'dd/M/yyyy'}}</td>
+       
+      </tr> 
+      <tr>
+        <td>وقت انتهاء الحجز</td>
+        <td>{{i.timeout | date:'shortTime'}}</td>
+      </tr>
+      <tr>
+        <td>ملاحضات</td>
+        <td *ngIf="i.disc!=''"> {{i.disc}}</td>
+        <td *ngIf="i.disc==''">  لا يوجد</td>
+      </tr>
+      
+      
+    </table>
+   
+  
+    <ion-button  *ngIf="!show&&!showw"expand="full" fill="outline" (click)="addrefroom()">اضافه الحجز</ion-button>
+    <a  target="_blank "[href]="str" *ngIf="showw">
+      <ion-button expand="full" fill="outline" style="--background: #3d696f; font-family: 'El Messiri' ; color:white">
+    ارسل لنا معلومات الحجز عبر الواتساب</ion-button></a>
+  
+   <div>
+   
+    
+   </div>
+  </div>
+</ion-content>

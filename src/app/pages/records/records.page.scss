@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Cairo:wght@300&family=Changa:wght@200&family=Noto+Nastaliq+Urdu:wght@400;700&family=Scheherazade&family=Tajawal:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri&display=swap');
+
+.date{
+    background-color: #ff0f0f;
+    border-radius: 10px;
+    color: red;
+    padding: 10px;
+
+    ion-item{
+        --background:none;
+        ion-input{
+            --padding-start: 0;
+            margin: 10px;
+            background: #f6efb5;
+            --padding: 10px;
+            border-radius: 10px;
+        }
+    }
+}
+
+h3{
+    font-size: 22px;
+    font-weight: 900;
+    font-family: 'Almarai';
+    color: #f6efb5;
+    padding-right: 20px;
+}
+
+.searchbtn{
+    --background: none;
+    --box-shadow: none;
+    /* color: red; */
+    background-color: #e00000;
+    width: 100px;
+    border-radius: 10px;
+    font-family: 'Almarai';
+    font-weight: 700;
+    border: 2px solid #f6efb5;
+}
+.main{
+    width: 100%;
+    margin: auto;
+}
+
+/* Split the screen in half */
+.split {
+    height: 100%;
+   
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  /* Control the left side */
+  .left {
+    width: 20%;
+    left: 0;
+    border-right:2px solid rgb(214, 214, 214);
+    position: relative;
+    background: #f6efb5;
+  }
+  
+  /* Control the right side */
+  .right {
+    width: 80%;
+    right: 0;
+  
+  }
+  
+  /* If you want the content centered horizontally and vertically */
+  .centered {
+    position: absolute;
+    top: 50%;
+    width: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .centeredd {
+    position: absolute;
+    top: 50%;
+    height: 100%;
+    width: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    ion-list{
+        background-color: transparent;
+        ion-item {
+            --background:none;
+          margin-bottom: 15px;
+            ion-label {
+                font-weight: inherit;
+                font-family: 'Cairo';
+                color:     #7a7a7a;
+            
+                font-size: 1 rem;
+            
+                            p {
+                                margin-top: 3px;
+                                ion-text {
+                                    font-size: 0.7rem;
+                                }
+                            }
+                        }
+        }
+        ion-item ion-icon {
+            color: #424242b3;
+        }
+    }
+  }
+
+  ion-footer{
+      position:absolute;
+      bottom:0px
+  }
+  /* Style the image inside the centered container, if needed */
+.none{display:none}
+
+.date ion-item ion-input {
+    --padding-start: 10px;}

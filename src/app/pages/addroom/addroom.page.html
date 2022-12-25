@@ -1,0 +1,46 @@
+<ion-header>
+  <div class="ionhead">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="end">
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+    <ion-title align="center" class="title">اختر  رقم غرفه  </ion-title>
+  </ion-toolbar>
+</div>
+</ion-header>
+
+<ion-content>
+  
+  <div style="width: 100%;height: 100%; position:relative" *ngIf="wait">
+    <div align="center" style="position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;">
+  <img src="../../../../assets/icon/wait.gif" style="width:200px"alt="">
+  <h1 style="font-family: 'Cairo', sans-serif;" class="ion-no-margin">الرجاء الانتظار</h1>
+  </div>
+  </div>
+  <div class="ioncontent" *ngIf="!wait">
+  
+  <div class="refdiv" align="center">
+    <div *ngFor="let g of catarray ;let k=index" class='griddiv' color="primary" (click)="gobook(g)">
+      <h6 align="right" class="ion-no-margin ion-no-padding">
+      
+        
+       
+      </h6>
+      <div class="show" >
+        <ion-text >   <p>{{g.catname |titlecase}}</p></ion-text> 
+        <ion-text >   <p>{{g.price | currency:'OMR'}}</p></ion-text> 
+        <ion-text *ngIf="g.catname==4" >   <p 
+        style="    background-color: #ab2e3630;
+    margin: 0px;
+    font-family: 'Cairo';">غرفه عائليه</p></ion-text> 
+        </div>
+    </div>
+  </div>
+</div>
+</ion-content>

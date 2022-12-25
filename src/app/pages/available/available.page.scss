@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Cairo:wght@300&family=Changa:wght@200&family=Noto+Nastaliq+Urdu:wght@400;700&family=Scheherazade&family=Tajawal:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri&display=swap');
+.no{
+    border-top:2px solid #ffcbcb;
+    border-bottom:2px solid #ffcbcb;
+}
+.datetime-calendar, .datetime-year {
+    display: none !important;
+    height: 0 !important;
+ }
+h4{
+    color: #a2a2a2;
+    //font-family:'Cairo';
+    // font-family: "Lalezar";
+    font-family: "Almarai";
+   // font-family: "El Messiri";
+    margin: 10px !important;
+}
+h3 {
+    margin: 0px;
+    background-color: #ab2e36;
+    font-family: 'cairo';
+    padding: 5px;
+    /* margin-top: 20px; */
+    width: fit-content;
+    color: white;
+    font-size: 26px;
+}
+ion-row{
+    font-family: 'cairo';
+    background-color: #1962361a;
+}
+.fdate{
+    margin-bottom: 50px;
+}
+.sdate{
+    margin-bottom: 50px;
+}
+calendar{    font-family: 'Cairo';}
+ion-input , ion-label{
+    font-family: 'Cairo' !important; 
+}
+
+hr {
+        left: 0;
+        width: 100%;
+        background: #3a87ad4a;
+    }
+
+    h2 {
+        margin: 7px;
+        font-size: 26px;
+        font-family: 'Almarai';
+        color: #3a87ad;
+    }
+
+
+ion-datetime{
+    margin:10px;
+    border-radius: 10px;
+    font-family: 'Cairo';
+}
